@@ -40,6 +40,7 @@ class PortfolioSeeder extends Seeder
                 'linkedin_url' => 'https://www.linkedin.com/in/bgomesweb',
                 'github_url' => 'https://github.com/bgomesweb',
                 'resume_path' => 'documents/Bruno_Gomes_Curriculo.pdf',
+                'photo_path' => 'photos/bruno-gomes.jpeg',
             ],
         );
     }

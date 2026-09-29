@@ -10,6 +10,7 @@
 .DS_Store
 Thumbs.db
 
-# Source PDFs kept outside the app (already copied into backend/storage/app/public/documents)
+# Source PDFs/photo kept outside the app (already copied into backend/storage/app/public)
 /Bruno_Gomes.pdf
 /adobecertifiedexpertadobecommercedeveloper-*.pdf
+/foto.jpeg

@@ -90,8 +90,19 @@ const whatsappUrl = computed(() => {
         </div>
       </div>
 
-      <div class="mx-auto flex h-56 w-56 items-center justify-center rounded-full border border-white/10 bg-gradient-to-br from-brand-500/30 to-transparent text-6xl font-black text-brand-300 sm:h-64 sm:w-64">
-        BG
+      <div class="mx-auto h-56 w-56 overflow-hidden rounded-full border border-white/10 shadow-lg shadow-black/30 sm:h-64 sm:w-64">
+        <img
+          v-if="profile?.photoUrl"
+          :src="profile.photoUrl"
+          :alt="profile.name"
+          class="h-full w-full object-cover"
+        />
+        <div
+          v-else
+          class="flex h-full w-full items-center justify-center bg-gradient-to-br from-brand-500/30 to-transparent text-6xl font-black text-brand-300"
+        >
+          BG
+        </div>
       </div>
     </div>
   </section>

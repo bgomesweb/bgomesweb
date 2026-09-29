@@ -293,23 +293,65 @@ class PortfolioSeeder extends Seeder
                 'repository_url' => 'https://github.com/bgomesweb/roncoli',
             ],
             [
-                'name' => 'Go-live e Sustentação Adobe Commerce — Chevrolet Seminovos, BF Casa e Adias',
-                'description' => 'Participação em projetos de e-commerce Adobe Commerce (Magento 2) do zero ao go-live e sustentação contínua, incluindo desenvolvimento de módulos customizados, integrações complexas e resolução de bugs, para chevroletseminovos.com.br, bfcasa.com.br e adias.com.br.',
-                'technologies' => ['Magento 2', 'Adobe Commerce', 'PHP', 'Módulos customizados'],
+                'name' => 'Chevrolet Seminovos',
+                'description' => 'Atuação do zero ao go-live no projeto Adobe Commerce (Magento 2) da plataforma de veículos seminovos, com integração com ERP e desenvolvimento de módulos customizados para atender às regras de negócio da operação.',
+                'technologies' => ['Magento 2', 'Adobe Commerce', 'PHP', 'Integração ERP', 'Módulos customizados'],
                 'url' => 'https://chevroletseminovos.com.br/',
                 'repository_url' => null,
             ],
             [
+                'name' => 'BF Casa',
+                'description' => 'Atuação do zero ao go-live no projeto Adobe Commerce (Magento 2), com integração com ERP e desenvolvimento de módulos customizados para o catálogo e o fluxo de compra da loja.',
+                'technologies' => ['Magento 2', 'Adobe Commerce', 'PHP', 'Integração ERP', 'Módulos customizados'],
+                'url' => 'https://bfcasa.com.br/',
+                'repository_url' => null,
+            ],
+            [
+                'name' => 'Adias',
+                'description' => 'Atuação do zero ao go-live no projeto Adobe Commerce (Magento 2), com integração com ERP e desenvolvimento de módulos customizados para as regras comerciais da loja.',
+                'technologies' => ['Magento 2', 'Adobe Commerce', 'PHP', 'Integração ERP', 'Módulos customizados'],
+                'url' => 'https://www.adias.com.br/',
+                'repository_url' => null,
+            ],
+            [
                 'name' => 'Atualização de Versão Magento — ASUS (Brasil, Peru, Colômbia e Chile)',
-                'description' => 'Atuação na ASUS Brasil, Peru, Colômbia e Chile na atualização de versão do Magento 2.4.4 para 2.4.8-p5, com foco em compatibilidade, segurança e performance da plataforma.',
-                'technologies' => ['Magento 2', 'Adobe Commerce', 'PHP', 'Upgrade de versão'],
+                'description' => 'Atuação na ASUS Brasil, Peru, Colômbia e Chile na atualização de versão do Magento de 2.4.4 para 2.4.8-p5, além de correção de bugs, desenvolvimento de módulos complexos para atender regras de negócio, integrações com marketplaces e customizações em módulos de pagamento e frete.',
+                'technologies' => ['Magento 2', 'Adobe Commerce', 'PHP', 'Upgrade de versão', 'Marketplaces', 'Pagamentos', 'Frete'],
                 'url' => 'https://www.asus.com/br',
                 'repository_url' => null,
             ],
             [
-                'name' => 'Sustentação Adobe Commerce — Correção de Bugs e Novas Features',
-                'description' => 'Projetos de sustentação em Adobe Commerce (Magento 2) com correção de bugs e desenvolvimento de novas features para caldeiraomistico.com.br, cumbucaboa.com.br, eletrofrigor.com.br, madeiranit.com.br e nivea.com.br.',
-                'technologies' => ['Magento 2', 'Adobe Commerce', 'PHP', 'Manutenção evolutiva'],
+                'name' => 'Caldeirão Místico',
+                'description' => 'Sustentação Adobe Commerce (Magento 2) com foco em correção de bugs e desenvolvimento de novas funcionalidades para o catálogo e o checkout da loja.',
+                'technologies' => ['Magento 2', 'Adobe Commerce', 'PHP', 'Correção de bugs', 'Novas features'],
+                'url' => 'https://www.caldeiraomistico.com.br/',
+                'repository_url' => null,
+            ],
+            [
+                'name' => 'Cumbuca Boa',
+                'description' => 'Sustentação Adobe Commerce (Magento 2) com desenvolvimento de integrações com sistemas externos e correção de bugs, garantindo estabilidade da operação.',
+                'technologies' => ['Magento 2', 'Adobe Commerce', 'PHP', 'Integrações', 'Correção de bugs'],
+                'url' => 'https://cumbucaboa.com.br/',
+                'repository_url' => null,
+            ],
+            [
+                'name' => 'Eletrofrigor',
+                'description' => 'Sustentação Adobe Commerce (Magento 2) com desenvolvimento de novos módulos customizados e correção de bugs para atender às demandas da loja.',
+                'technologies' => ['Magento 2', 'Adobe Commerce', 'PHP', 'Módulos customizados', 'Correção de bugs'],
+                'url' => 'https://www.eletrofrigor.com.br/',
+                'repository_url' => null,
+            ],
+            [
+                'name' => 'Madeira Nit',
+                'description' => 'Sustentação Adobe Commerce (Magento 2) com correção de bugs e desenvolvimento de integrações com sistemas externos.',
+                'technologies' => ['Magento 2', 'Adobe Commerce', 'PHP', 'Integrações', 'Correção de bugs'],
+                'url' => 'https://www.madeiranit.com.br/',
+                'repository_url' => null,
+            ],
+            [
+                'name' => 'Nivea',
+                'description' => 'Sustentação Adobe Commerce (Magento 2) com desenvolvimento de novas features e correção de bugs, com foco em estabilidade e performance da loja.',
+                'technologies' => ['Magento 2', 'Adobe Commerce', 'PHP', 'Novas features', 'Correção de bugs'],
                 'url' => 'https://www.nivea.com.br/',
                 'repository_url' => null,
             ],
@@ -321,5 +363,9 @@ class PortfolioSeeder extends Seeder
                 [...$project, 'sort_order' => $index],
             );
         }
+
+        Project::query()
+            ->whereNotIn('name', array_column($projects, 'name'))
+            ->delete();
     }
 }

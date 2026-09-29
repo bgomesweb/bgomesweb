@@ -1,0 +1,15 @@
+# Environment files (local secrets)
+.env
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Source PDFs kept outside the app (already copied into backend/storage/app/public/documents)
+/Bruno_Gomes.pdf
+/adobecertifiedexpertadobecommercedeveloper-*.pdf

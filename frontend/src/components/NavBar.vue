@@ -26,7 +26,7 @@ function closeMenu(): void {
   >
     <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
       <a href="#topo" class="text-lg font-bold tracking-tight text-white">
-        Bruno<span class="text-brand-400">.</span>dev
+        bgomesweb
       </a>
 
       <ul class="hidden items-center gap-8 text-sm font-medium text-slate-300 md:flex">

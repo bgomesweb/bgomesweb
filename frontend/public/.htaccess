@@ -1,7 +1,15 @@
 Options -Indexes -MultiViews
 RewriteEngine On
 
-# Serve real files/directories directly (static assets, /api and /storage symlinks)
+# Route /api/* to the Laravel front controller (kept in a folder named
+# differently from "api" on purpose: Apache/LiteSpeed treats a physical
+# "api" folder as a subdirectory install and strips "/api" from the URL
+# before Laravel sees it, which breaks routes/api.php's automatic "api/"
+# prefix — that only doesn't happen locally because nginx hardcodes
+# SCRIPT_NAME to /index.php). This rewrite keeps REQUEST_URI intact.
+RewriteRule ^api/(.*)$ backend-app/index.php [L]
+
+# Serve real files/directories directly (static assets, /storage symlink)
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]

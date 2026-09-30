@@ -1,0 +1,10 @@
+Options -Indexes -MultiViews
+RewriteEngine On
+
+# Serve real files/directories directly (static assets, /api and /storage symlinks)
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Vue Router (history mode) fallback
+RewriteRule ^ index.html [L]

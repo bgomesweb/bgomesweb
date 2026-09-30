@@ -28,4 +28,6 @@ php artisan storage:link || true
 php artisan config:cache
 php artisan route:cache
 
+chmod -R 777 storage/framework storage/logs bootstrap/cache
+
 exec "$@"
